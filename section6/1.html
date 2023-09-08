@@ -1,0 +1,61 @@
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="YES";
+                let arr = []
+                for(let i=0; i<s.length; i++){
+                    if(s[i]=="("){
+                        arr.push(s[i])
+                    } else {
+                        if(arr.length == 0) answer="NO"
+                        arr.pop()
+
+                    }
+                }
+                console.log(arr)
+                if(arr.length != 0) answer = "NO"
+                return answer;
+            }
+            
+            let a="(()(()))(()";
+            console.log(solution(a));
+        </script>
+    </body>
+</html> 
+ -->
+
+ <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="YES";
+                let stack = []
+                for(let x of s){
+                    if(x =="("){
+                        stack.push(x)
+                    } else {
+                        if(s.length == 0) answer="NO"
+                        stack.pop()
+
+                    }
+                }
+                console.log(stack)
+                if(stack.length != 0) answer = "NO"
+                return answer;
+            }
+            
+            let a="(()(()))(()";
+            console.log(solution(a));
+        </script>
+    </body>
+</html> 
+
