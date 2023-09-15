@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            let answer;
+
+            function solution(n){
+              function DFX(L){
+                if(L == 0) return;
+                else {
+                    DFX(L-1)
+                    console.log(L)
+                }
+              }
+              DFX(n)
+            } 
+
+            solution(3);
+        </script>
+    </body>
+</html>
+
