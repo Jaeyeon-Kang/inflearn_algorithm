@@ -8,17 +8,9 @@
             function solution(s){
                 let answer="YES";
                 s=s.toLowerCase().replace(/[^a-z]/g, '');
-<<<<<<< HEAD
                 for(let i=0; i<s.length; i++){
                     if(s[i] !== s[s.length-1-i]) answer = "NO"
                 }
-=======
-                // console.log('s: ' + s)
-                // console.log('s.split: ' + s.split('') )
-                // console.log('s.split.reverse: ' + s.split('').reverse())
-                // console.log('~~join: ' + s.split('').reverse().join(''))
-                if(s.split('').reverse().join('')!==s) return "NO";
->>>>>>> 33b2b9785a51e75609baede59516808e700068af
                 return answer;
             }
             

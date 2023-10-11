@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(m, arr){
+                let answer=0, lt=0, rt=0; sum=0;
+                for(let rt=0; rt<arr.length; rt++){
+                    sum+=arr[rt]
+                    console.log('lt: ' + lt + ' & ' + 'rt: ' + rt)
+                    console.log('sum1: ' + sum)
+                    if(sum==m) answer++
+                    console.log('answer1: ' + answer); // answer은 합이 m이 되는 연속부분수열의 갯수
+                    
+                    while(sum>=m){ // sum이 m보다 작아졌을 때까지 lt를 증가시켜야한다.
+                        sum -= arr[lt++]
+                        console.log('lt: ' + lt + ' & ' + 'rt: ' + rt)
+                        console.log('sum2: ' + sum)
+                        if(sum==m) answer++
+                        console.log('answer2: ' + answer)
+                    }
+                }
+                return answer;
+            }
+            
+            let a=[1, 2, 1, 3, 1, 1, 1, 2];
+            console.log(solution(6, a));
+        </script>
+    </body>
+</html>
