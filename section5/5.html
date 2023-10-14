@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(k, arr) {
+            let answer, sum = 0;
+            for (let i = 0; i < k; i++) {
+                sum += arr[i]
+                console.log('sum1: ' + sum + ' & ' + 'i: ' + i + ' & ' + 'K: ' + k)
+            }
+
+            answer = sum; // 첫번째 3일은 구해둔다
+            for (let i = k; i < arr.length; i++) {
+                sum += (arr[i] - arr[i - k]); // 4일 이상부터, 4일째 거 더하고 1일째 것 빼는 식으로 구한다.
+                console.log('sum2: ' + sum + ' & ' + 'arr[i]: ' + arr[i] + ' & ' + 'i: ' + i + ' & ' + 'K: ' + k)
+                answer = Math.max(answer, sum);
+                console.log('answer: ' + answer)
+            }
+            return answer;
+        }
+
+        let a = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+        console.log(solution(3, a));
+    </script>
+</body>
+
+</html>

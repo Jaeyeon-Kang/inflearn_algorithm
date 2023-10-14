@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer;
+            let sH = new Map(); // sH: string Hash. Map()은 객체 생성 연산자
+            for (let x of s) {
+                if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+                else sH.set(x, 1);
+                console.log('x: ' + x + ' & ' + 'sH: ' + Array.from(sH))
+            }
+            let max = Number.MIN_SAFE_INTEGER;
+            for (let [key, val] of sH) {
+                console.log(key, val)
+                if (val > max) {
+                    max = val
+                    answer = key
+                }
+            }
+            return answer;
+        }
+
+        let str = "BACBACCACCBDEDE";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
+<!-- <html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer;
+            let voteCount = {}; // 후보별 투표 수를 저장할 객체
+
+            // 투표 카운트
+            for (let i = 0; i < s.length; i++) {
+                if (voteCount[s[i]]) {
+                    voteCount[s[i]] += 1; // 이미 카운트된 후보라면 +1
+                } else {
+                    voteCount[s[i]] = 1; // 처음 카운트되는 후보라면 1로 설정
+                }
+                console.log(`후보 ${s[i]}에 대한 현재 투표 수: ${voteCount[s[i]]}`); // 디버깅용
+                console.log('voteCount: ' + JSON.stringify(voteCount))
+            }
+
+            console.log(`투표 결과: ${JSON.stringify(voteCount)}`); // 디버깅용
+
+            // 가장 많은 투표를 받은 후보 찾기
+            let maxVote = 0;
+            for (let candidate in voteCount) {
+                if (voteCount[candidate] > maxVote) {
+                    maxVote = voteCount[candidate];
+                    answer = candidate; // 가장 많은 투표를 받은 후보를 answer로 설정
+                }
+                console.log(`후보 ${candidate}의 투표 수: ${voteCount[candidate]}, 현재 최고 투표 수: ${maxVote}`); // 디버깅용
+            }
+
+            return answer;
+        }
+
+        let str = "BACBACCACCBDEDE";
+        console.log(`최종 결과: ${solution(str)}`); // 출력: "C"
+    </script>
+</body>
+
+</html> -->
