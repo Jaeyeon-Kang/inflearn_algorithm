@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function count(stable, dist) { // dist는 가장 가까운 말의 거리
+            let cnt = 1, ep = stable[0]; //ep는 방금 전 말을 배치한 좌표
+            for (let i = 1; i < stable.length; i++) {
+                if (stable[i] - ep >= dist) { // 마구간 좌표를 돌며 stable[i]자리에 말을 놓을 수 있느냐, 없느냐를 거리로 확인한다.
+                    // 마지막에 배치된 말 좌표가 ep이기 때문에 가장 가까운 두 말의 거리(dist)보다는 크거나 같아야 말을 배치할 수 있다
+                    cnt++; // 말의 개수
+                    ep = stable[i]; // 말 좌표 업데이트
+                }
+            }
+            return cnt;
+        }
+        function solution(c, stable) {
+            let answer;
+            stable.sort((a, b) => a - b);
+            let lt = 1;
+            let rt = stable[stable.length - 1];
+            while (lt <= rt) {
+                let mid = parseInt((lt + rt) / 2);
+                if (count(stable, mid) >= c) {
+                    answer = mid;
+                    lt = mid + 1;
+                }
+                else rt = mid - 1;
+            }
+            return answer;
+        }
+
+        let arr = [1, 2, 8, 4, 9];
+        console.log(solution(3, arr));
+    </script>
+</body>
+
+</html>
