@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                let answer="";
+                function DFS(l){
+                    if(l == 0) return;
+                    else {
+                        DFS(parseInt(l/2));
+                        answer+=l%2
+                    }
+                }
+
+                DFS(n)
+                return answer;
+            }
+
+            console.log(solution(11));
+        </script>
+    </body>
+</html>
