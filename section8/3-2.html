@@ -10,11 +10,11 @@
         function solution(n) {
             let answer = "";
             function DFS(L) {
-                if (L > 7) return
+                if (L == 8) return
                 else {
+                    console.log(L)
                     DFS(L * 2)
                     DFS(L * 2 + 1)
-                    console.log(L)
                 }
 
             }
