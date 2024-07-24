@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(n, m) {
+            let answer = [];
+            let tmp = Array.from({ length: m }, () => 0);
+            function DFS(L) {
+                if (L === n) {
+                    return;
+                }
+                if (tmp[0] !== 0 && tmp[1] !== 0) {
+                    return;
+                } else {
+                    tmp[L] = L + 1
+                    DFS(L + 1)
+                    console.log(tmp)
+
+
+                }
+            }
+
+            DFS(0);
+            return answer;
+        }
+
+        console.log(solution(3, 2));
+    </script>
+</body>
+
+</html>
