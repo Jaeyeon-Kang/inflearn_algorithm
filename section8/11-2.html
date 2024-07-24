@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+
+        function solution(n) {
+            if (n === 0) {
+                return 1;
+            } else {
+                let result = n * solution(n - 1);
+                console.log(`n: ${n}, result: ${result}`);
+                return result;
+            }
+        }
+
+        console.log(solution(5));
+
+    </script>
+</body>
+
+</html>
