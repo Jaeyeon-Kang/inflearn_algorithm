@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = s[0]
+            for (let i = 1; i < s.length; i++) {
+                // console.log(s[i], answer.indexOf(s[i]))
+                if (answer.indexOf(s[i]) == -1) {
+                    answer += s[i]
+                }
+            }
+            return answer
+        }
+        console.log(solution("ksekkset"));
+    </script>
+</body>
+
+</html>
