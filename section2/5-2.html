@@ -8,11 +8,20 @@
 <body>
     <script>
         function solution(arr) {
+            let answer = Array.from({ length: arr.length }, () => 1)
 
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[i] < arr[j]) {
+                        answer[i]++
+                        console.log(`i: ${i}, j: ${j}, answer:${answer}`)
+                    }
+                }
+            }
             return answer;
         }
 
-        let arr = [87, 89, 92, 100, 76];
+        let arr = [87, 89, 89, 100, 76];
         console.log(solution(arr));
     </script>
 </body>
