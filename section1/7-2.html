@@ -1,0 +1,23 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>출력결과</title>
+</head>
+
+<body>
+  <script>
+    function solution(n, arr) {
+      let cnt = 0;
+      for (let x of arr) {
+        if (x % 10 === n) cnt++
+      }
+      return cnt;
+    }
+
+    arr = [12, 20, 54, 30, 87, 91, 30];
+    console.log(solution(0, arr));
+  </script>
+</body>
+
+</html>

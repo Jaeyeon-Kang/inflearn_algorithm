@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = ''
+            let tmp = Math.floor(s.length / 2)
+            if (s.length % 2 === 0) {
+                answer = s.substring(tmp - 1, tmp + 1)
+            } else {
+                console.log(tmp)
+                answer = s.substring(tmp, tmp + 1)
+            }
+            return answer;
+        }
+        console.log(solution("stuudy"));
+    </script>
+</body>
+
+</html>
