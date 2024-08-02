@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(n, arr) {
+            let answer = 0;
+            let max = 0;
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = String(arr[i])
+                let tmp = arr[i].split('').reduce((a, b) => Number(a) + Number(b), 0)
+                // console.log(arr[i])
+                // console.log(tmp)
+
+                console.log(`max: ${max}, tmp: ${tmp}, arr[i]: ${arr[i]}`)
+                if (max < tmp) {
+                    max = tmp
+                    answer = arr[i]
+                } else if (max === tmp) {
+                    answer = Math.max(answer, arr[i])
+                }
+
+                console.log(`answer: ${answer}`)
+
+            }
+
+            return answer;
+        }
+
+        let arr = [128, 460, 603, 40, 521, 137, 123];
+        console.log(solution(7, arr));
+    </script>
+</body>
+
+</html>
