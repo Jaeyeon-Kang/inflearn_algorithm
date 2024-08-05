@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function isPrime(num) {
+            if (num === 1) return false;
+            for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+        function solution(arr) {
+            let answer = [];
+            for (let x of arr) {
+                let res = 0; // res는 뒤집힌 숫자를 저장하기 위한 변수
+                while (x) { // 해당 while문이 한번 돌면서 앞뒤가 뒤바뀐 숫자를 출력함
+                    console.log('res: ' + res)
+                    let t = x % 10; // x의 맨 오른쪽 숫자 (일의 자리) 
+                    console.log('t: ' + t)
+                    res = res * 10 + t; // res를 10배하고 t를 더하여 res에 저장합니다. (이렇게 하면 숫자가 뒤집히게 됩니다.)
+                    console.log('res2: ' + res)
+                    x = parseInt(x / 10); // x/10은 0.3, parseInt는 정수만 나오게 한다
+                    console.log('x: ' + x)
+                }
+                if (isPrime(res)) answer.push(res);
+            }
+            return answer;
+        }
+
+        let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
+        console.log(solution(arr));
+    </script>
+</body>
+
+</html>
