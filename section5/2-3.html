@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(arr1, arr2) {
+            let answer = []
+            let pa = pb = 0;
+            let n = arr1.length;
+            let m = arr2.length;
+
+            arr1 = arr1.sort((a, b) => a - b)
+            // 1 2 3 5 9
+            arr2 = arr2.sort((a, b) => a - b)
+            // 2 3 5 7 8
+
+            while (pa < n && pb < m) {
+                console.log(`pa: ${pa}, pb: ${pb}`)
+                if (arr1[pa] === arr2[pb]) {
+                    answer.push(arr1[pa++])
+                    pb++
+                } else if (arr1[pa] < arr2[pb]) {
+                    pa++
+                } else {
+                    pb++
+                }
+
+            }
+
+            return answer
+
+
+        }
+
+        let a = [1, 3, 9, 5, 2];
+        let b = [3, 2, 5, 7, 8];
+        console.log(solution(a, b));
+    </script>
+</body>
+
+</html>
