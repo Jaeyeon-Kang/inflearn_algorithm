@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(m, arr) {
+            let sum = 0;
+            let cnt = 0;
+            let lt = rt = 0;
+
+            while (rt < arr.length) {
+                if (sum === m) {
+                    sum -= arr[lt++]
+                    cnt++
+                } else if (sum < m) {
+                    sum += arr[rt++]
+                }
+
+                while (sum > m) {
+                    sum -= arr[lt++]
+                }
+            }
+            return cnt;
+        }
+
+        let a = [1, 2, 1, 3, 1, 1, 1, 2];
+        console.log(solution(6, a));
+    </script>
+</body>
+
+</html>
