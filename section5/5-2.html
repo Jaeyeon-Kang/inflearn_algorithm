@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(k, arr) {
+            let lt = 0;
+            let sum = 0;
+            let answer = 0;
+            function 더하기(rt, lt) {
+                let sum2 = 0;
+                for (let i = lt; i <= rt; i++) {
+                    sum2 += arr[i]
+                }
+                console.log(`sum2: ${sum2}`)
+                return sum2;
+
+            }
+
+            for (let rt = lt + 2; rt < arr.length; rt++) { // rt=4
+                sum = 더하기(rt, lt) // sum = 38, 46
+                if (answer < sum) {
+                    answer = sum; // answer = 46
+                    lt++ // lt=2
+                } else {
+                    return answer;
+                }
+            }
+        }
+
+        let a = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+        console.log(solution(3, a));
+    </script>
+</body>
+
+</html>
