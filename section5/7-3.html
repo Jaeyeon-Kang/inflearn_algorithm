@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(str1, str2) {
+            let hash = new Map()
+            let answer = "YES"
+            //let cnt=0;
+            for (let i = 0; i < str1.length; i++) {
+                if (!hash.has(str1[i])) hash.set(str1[i], 1)
+                else hash.set(str1[i], hash.get(str1[i]) + 1)
+            }
+
+            for (x of str2) {
+                if (!hash.has(x) || hash.get(x) == 0) answer = "NO"
+                hash.set(x, hash.get(x) - 1)
+            }
+
+            return answer;
+
+        }
+
+        let a = "abaaC";
+        let b = "Caacb";
+        console.log(solution(a, b));
+    </script>
+</body>
+
+</html>
