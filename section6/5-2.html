@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = 0;
+            let stack = []
+            for (let x of s) {
+                if (x == ")") {
+                    if (stack.pop() == "(") {
+                        answer += stack.length
+                    } else if (stack.pop() == ")") {
+                        answer += 1
+                    }
+                } else {
+                    stack.push(x)
+                }
+                console.log(stack)
+                console.log(answer)
+            }
+            return answer;
+        }
+
+        let a = "()(((()())(())()))(())";
+        console.log(solution(a));
+    </script>
+</body>
+)
+
+</html>
