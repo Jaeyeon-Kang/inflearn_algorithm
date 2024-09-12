@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(size, arr) {
+            let answer = Array.from({ length: size }, () => 0);
+            for (let x of arr) {
+                if (!answer.includes(x)) {
+                    // 캐시미스
+                    answer.unshift(x)
+                    answer.pop()
+                } else {
+                    // 캐시히트
+                    console.log(`x: ${x}, answer: ${answer}`)
+                    let pos = answer.indexOf(x)
+                    let tmp = x, j
+                    for (let j = pos - 1; j < answer.length; j--) {
+                        console.log(`j: ${j}, answer[j]: ${answer[j]}`)
+                        if (j < 0) {
+                            answer[j + 1] = tmp
+                            console.log(`here's answer: ${answer}`)
+                            break;
+                        } else {
+                            answer[j + 1] = answer[j]
+                            console.log(`here's answer: ${answer}`)
+                        }
+                        console.log(answer)
+
+                    }
+                }
+                console.log(answer)
+            }
+            return answer;
+        }
+
+        let arr = [1, 2, 3, 2, 6, 2, 3, 5, 7];
+        console.log(solution(5, arr));
+    </script>
+</body>
+
+</html>
