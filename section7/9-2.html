@@ -1,0 +1,47 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>출력결과</title>
+</head>
+
+<body>
+  <script>
+    function solution(times) {
+      let events = [];
+
+      for (let time of times) {
+        events.push([time[0], 1]);  // 도착 시간에 +1
+        events.push([time[1], -1]); // 떠나는 시간에 -1
+      }
+
+      events.sort((a, b) => {
+        if (a[0] === b[0]) return a[1] - b[1];
+        return a[0] - b[0];
+      });
+
+      let current = 0;
+      let max = 0;
+
+      for (let x of events) {
+        current += x[1]
+        if (current > max) {
+          max = current
+        }
+      }
+
+      return max
+    }
+
+    let arr = [
+      [14, 18],
+      [12, 15],
+      [15, 20],
+      [20, 30],
+      [5, 14],
+    ];
+    console.log(solution(arr));
+  </script>
+</body>
+
+</html>
