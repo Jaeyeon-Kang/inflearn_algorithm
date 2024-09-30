@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+
+        function solution(arr, n) {
+            let lt = 0
+            let rt = arr.length - 1
+
+            while (lt <= rt) {
+                let mid = Math.floor((lt + rt) / 2)
+
+                if (arr[mid] === n) {
+                    return mid
+                } else if (arr[mid] < n) {
+                    lt = mid + 1
+                } else {
+                    rt = mid - 1
+                }
+            }
+
+            return -1
+
+        }
+
+        let arr = [1, 2, 3, 4, 5, 6, 7]
+        console.log(solution(arr, 4));
+    </script>
+</body>
+
+</html>
