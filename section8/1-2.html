@@ -10,15 +10,16 @@
         let answer;
 
         function solution(n) {
-            function DFS(L) {
-                if (L === 0) {
-                    return;
+            function 재귀(l) {
+                if (l == 0) {
+                    return
                 } else {
-                    DFS(L - 1)
-                    console.log(L)
+                    재귀(l - 1)
+                    console.log(l)
                 }
             }
-            DFS(n)
+
+            재귀(n)
         }
         solution(3);
     </script>
