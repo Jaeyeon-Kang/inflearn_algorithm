@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(n) {
+            answer = ''
+            function DFX(l) {
+                if (l === 0) {
+                    return;
+                } else {
+                    DFX(parseInt(l / 2))
+
+                    answer += (l % 2)
+                }
+
+
+            }
+            DFX(n)
+            return answer;
+        }
+
+        console.log(solution(11));
+    </script>
+</body>
+
+</html>
