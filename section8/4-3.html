@@ -8,28 +8,27 @@
 <body>
     <script>
         function solution(n) {
-            let answer = [];
-            let ch = Array.from({ length: n + 1 }, () => 0);
+            let answer = []
+            let ch = Array.from({ length: n + 1 }, () => 0)
 
-            function DFS(L) {
-                if (L === n + 1) {
-                    let tmp = "";
+            function DFS(l) {
+                if (l === n + 1) {
+                    let tmp = ''
                     for (let i = 1; i <= n; i++) {
-                        if (ch[i] === 1) tmp += (i + " ");
+                        if (ch[i] == 1) tmp += i + ' '
 
                     }
-                    if (tmp.length > 0) answer.push(tmp.trim());
-                }
-                else {
-                    ch[L] = 1;
-                    DFS(L + 1);
+                    if (tmp.length > 0) answer.push(tmp.trim())
 
-                    ch[L] = 0;
-                    DFS(L + 1);
-
+                } else {
+                    ch[l] = 1
+                    DFS(l + 1)
+                    ch[l] = 0
+                    DFS(l + 1)
                 }
+
             }
-            DFS(1);
+            DFS(1)
             return answer;
         }
 
